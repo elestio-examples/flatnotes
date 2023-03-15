@@ -12,5 +12,4 @@ services:
       FLATNOTES_PASSWORD: ${ADMIN_PASSWORD}
       FLATNOTES_SECRET_KEY: ${ADMIN_PASSWORD}
     volumes:
-      - "./data:/app/data"
-      - "./index:/app/data/.flatnotes"
+      - ./data:/app/data
