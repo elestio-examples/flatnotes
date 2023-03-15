@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  flatnotes:
+    image: dullage/flatnotes:latest
+    restart: always
+    ports:
+      - "172.17.0.1:6457:80"
+    environment:
+      FLATNOTES_AUTH_TYPE: "password"
+      FLATNOTES_USERNAME: ${ADMIN_EMAIL}
+      FLATNOTES_PASSWORD: ${ADMIN_PASSWORD}
+      FLATNOTES_SECRET_KEY: ${ADMIN_PASSWORD}
+    volumes:
+      - "./data:/app/data"
+      - "./index:/app/data/.flatnotes"
