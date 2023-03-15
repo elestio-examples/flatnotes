@@ -4,9 +4,7 @@
 
 Deploy Flatnotes server with CI/CD on Elestio
 
-<div style="text-align:center;">
-<img src="Flatnotes.png" style='width: 60%;'/>
-</div>
+<img src="Flatnotes.png" style='width: 100%;'/>
 <br/>
 <br/>
 
