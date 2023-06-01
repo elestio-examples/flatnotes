@@ -12,6 +12,8 @@ environments:
     value: "random_password"
   - key: "ADMIN_EMAIL"
     value: "[EMAIL]"
+  - key: "SOFTWARE_VERSION_TAG"
+    value: "latest"   
 
 config:
   runTime: "dockerCompose"
