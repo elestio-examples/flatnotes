@@ -2,7 +2,7 @@ version: "3"
 
 services:
   flatnotes:
-    image: dullage/flatnotes:latest
+    image: dullage/flatnotes:${SOFTWARE_VERSION_TAG}
     restart: always
     ports:
       - "172.17.0.1:6457:80"
