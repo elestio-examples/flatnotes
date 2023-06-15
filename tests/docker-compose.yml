@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  flatnotes:
+    image: elestio4test/flatnotes:latest
+    restart: always
+    ports:
+      - "172.17.0.1:8080:8080"
+    environment:
+      FLATNOTES_AUTH_TYPE: "password"
+      FLATNOTES_USERNAME: ${ADMIN_EMAIL}
+      FLATNOTES_PASSWORD: ${ADMIN_PASSWORD}
+      FLATNOTES_SECRET_KEY: ${ADMIN_PASSWORD}
+    volumes:
+      - "./data:/data"
