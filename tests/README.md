@@ -6,15 +6,15 @@
 [![Elestio examples](https://img.shields.io/static/v1.svg?logo=github&color=f78A38&labelColor=083468&logoColor=ffffff&style=for-the-badge&label=github&message=open%20source)](https://github.com/elestio-examples "Access the source code for all our repositories by viewing them.")
 [![Blog](https://img.shields.io/static/v1.svg?color=f78A38&labelColor=083468&logoColor=ffffff&style=for-the-badge&label=elest.io&message=Blog)](https://blog.elest.io "Latest news about elestio, open source software, and DevOps techniques.")
 
-# Trilium, verified and packaged by Elestio
+# Flatnotes, verified and packaged by Elestio
 
-[Trilium](https://github.com/zadam/trilium) Notes is a hierarchical note taking application with focus on building large personal knowledge bases.
+[Flatnotes](https://github.com/dullage/flatnotes) is a self-hosted, database-less note-taking web app that utilises a flat folder of markdown files for storage.
 
-<img src="https://github.com/elestio-examples/trilium/raw/main/trilium.png" alt="trilium" width="800">
+<img src="https://github.com/elestio-examples/flatnotes/raw/main/Flatnotes.png" alt="flatnotes" width="800">
 
-Deploy a <a target="_blank" href="https://elest.io/open-source/trilium">fully managed Trilium</a> on <a target="_blank" href="https://elest.io/">elest.io</a> if you want automated backups, reverse proxy with SSL termination, firewall, automated OS & Software updates, and a team of Linux experts and open source enthusiasts to ensure your services are always safe, and functional.
+Deploy a <a target="_blank" href="https://elest.io/open-source/flatnotes">fully managed Flatnotes</a> on <a target="_blank" href="https://elest.io/">elest.io</a> if you want automated backups, reverse proxy with SSL termination, firewall, automated OS & Software updates, and a team of Linux experts and open source enthusiasts to ensure your services are always safe, and functional.
 
-[![deploy](https://github.com/elestio-examples/trilium/raw/main/deploy-on-elestio.png)](https://dash.elest.io/deploy?source=cicd&social=dockerCompose&url=https://github.com/elestio-examples/trilium)
+[![deploy](https://github.com/elestio-examples/flatnotes/raw/main/deploy-on-elestio.png)](https://dash.elest.io/deploy?source=cicd&social=dockerCompose&url=https://github.com/elestio-examples/flatnotes)
 
 # Why use Elestio images?
 
@@ -28,7 +28,7 @@ Deploy a <a target="_blank" href="https://elest.io/open-source/trilium">fully ma
 
 You can deploy it easily with the following command:
 
-    git clone https://github.com/elestio-examples/trilium.git
+    git clone https://github.com/elestio-examples/flatnotes.git
 
 Copy the .env file from tests folder to the project directory
 
@@ -51,25 +51,27 @@ You can access the Web UI at: `http://your-domain:28080`
 
 Here are some example snippets to help you get started creating a container.
 
-    version: "3.3"
+    version: "3"
 
     services:
-
-        trilium:
-            image: elestio4test/trilium
+        flatnotes:
+            image: elestio4test/flatnotes:latest
             restart: always
-            environment:
-                - TRILIUM_DATA_DIR=/home/node/trilium-data
             ports:
-                - "172.17.0.1:28080:8080"
-            volumes:
-                - ./data:/home/node/trilium-data
+                - "172.17.0.1:8080:8080"
+            environment:
+                FLATNOTES_AUTH_TYPE: "password"
+                FLATNOTES_USERNAME: ${ADMIN_EMAIL}
+                FLATNOTES_PASSWORD: ${ADMIN_PASSWORD}
+                FLATNOTES_SECRET_KEY: ${ADMIN_PASSWORD}
+        volumes:
+            - "./data:/data"
 
 # Maintenance
 
 ## Logging
 
-The Elestio Trilium Docker image sends the container logs to stdout. To view the logs, you can use the following command:
+The Elestio Flatnotes Docker image sends the container logs to stdout. To view the logs, you can use the following command:
 
     docker-compose logs -f
 
@@ -100,8 +102,6 @@ That's it! With these simple steps, you can easily backup and restore your data 
 
 # Links
 
-- <a target="_blank" href="https://github.com/zadam/trilium/wiki/">Traduora documentation</a>
+- <a target="_blank" href="https://github.com/dullage/flatnotes">Flatnotes Github repository</a>
 
-- <a target="_blank" href="https://github.com/zadam/trilium">Traduora Github repository</a>
-
-- <a target="_blank" href="https://github.com/elestio-examples/trilium">Elestio/traduora Github repository</a>
+- <a target="_blank" href="https://github.com/elestio-examples/flatnotes">Elestio/flatnotes Github repository</a>
