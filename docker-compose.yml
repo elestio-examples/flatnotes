@@ -2,7 +2,7 @@ version: "3"
 
 services:
   flatnotes:
-    image: dullage/flatnotes:${SOFTWARE_VERSION_TAG}
+    image: elestio/flatnotes:${SOFTWARE_VERSION_TAG}
     restart: always
     ports:
       - "172.17.0.1:8080:8080"
