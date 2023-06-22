@@ -64,8 +64,8 @@ Here are some example snippets to help you get started creating a container.
                 FLATNOTES_USERNAME: ${ADMIN_EMAIL}
                 FLATNOTES_PASSWORD: ${ADMIN_PASSWORD}
                 FLATNOTES_SECRET_KEY: ${ADMIN_PASSWORD}
-        volumes:
-            - "./data:/data"
+            volumes:
+                - "./data:/data"
 
 # Maintenance
 
